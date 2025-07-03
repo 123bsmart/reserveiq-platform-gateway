@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReserveIQ Platform - AI-Powered Property Intelligence</title>
+    <meta name="description" content="Access your ReserveIQ Platform: Crisis prevention, financial analysis, and professional communications for property managers and board members.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #10b981 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm5-18v4h3V3h-3z"/></svg>') center/20px no-repeat;
+        }
+        
+        .header-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        
+        .header-links a:hover {
+            opacity: 1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 1px solid #3b82f6;
+            border-radius: 25px;
+            padding: 8px 16px;
+            color: #1e3a8a;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+        }
+        
+        /* User Path Selection */
+        .user-paths {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .paths-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .path-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .board-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        .path-card:not(.board-card) {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f7fee7 100%);
+        }
+        
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #10b981 100%);
+        }
+        
+        .path-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-color: #10b981;
+        }
+        
+        .board-card:hover {
+            border-color: #1e3a8a;
+        }
+        
+        .path-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .board-card .path-icon {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+        }
+        
+        .path-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        
+        .path-subtitle {
+            font-size: 1.1rem;
+            color: #059669;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .board-card .path-subtitle {
+            color: #0284c7;
+        }
+        
+        .path-description {
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #374151;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .board-card .features-list li::before {
+            color: #0284c7;
+        }
+        
+        .path-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
+        }
+        
+        .board-card .btn-primary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+        
+        .board-card .btn-primary:hover {
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #059669;
+            border-color: #059669;
+        }
+        
+        .btn-secondary:hover {
+            background: #059669;
+            color: white;
+        }
+        
+        .board-card .btn-secondary {
+            color: #1e3a8a;
+            border-color: #1e3a8a;
+        }
+        
+        .board-card .btn-secondary:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        /* Platform Preview */
+        .platform-preview {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .preview-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .preview-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        
+        .preview-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .preview-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 4px solid #10b981;
+        }
+        
+        .preview-item h4 {
+            color: #1e3a8a;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .preview-item p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+        
+        /* Support Section */
+        .support {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+        
+        .support h3 {
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .support p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .support a {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .support a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: #9ca3af;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #10b981;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .paths-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .path-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .path-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            
+            .preview-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .user-paths {
+                padding: 40px 0;
+            }
+            
+            .platform-preview {
+                padding: 60px 0;
+            }
+            
+            .path-card {
+                padding: 2rem 1rem;
+            }
+            
+            .features-list {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div>
+                    <div style="font-size: 1.8rem; font-weight: 700;">ReserveIQ</div>
+                    <div style="font-size: 0.8rem; opacity: 0.9; font-weight: 400;">Platform Access</div>
+                </div>
+            </div>
+            <div class="header-links">
+                <a href="https://reserveiq.net">Marketing Site</a>
+                <a href="mailto:support@reserveiq.dev">Support</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="platform-badge">
+                <span>🔒</span>
+                <span>Secure Platform Access</span>
+            </div>
+            <h1>Welcome to ReserveIQ Platform</h1>
+            <p class="hero-subtitle">Your AI-powered property intelligence platform for crisis prevention, financial analysis, and professional communications.</p>
+            <p style="color: #059669; font-size: 1rem; font-weight: 500; margin-top: 1rem;">Built in collaboration with experienced property managers and board members</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://reserveiq.net" style="color: #10b981; text-decoration: none; font-size: 0.95rem; font-weight: 500;">← Back to ReserveIQ.net</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- User Path Selection -->
+    <section class="user-paths">
+        <div class="container">
+            <div class="preview-content">
+                <h2 class="preview-title">Choose Your Platform Experience</h2>
+                <p class="preview-subtitle">Select your role to access the features designed specifically for condo and HOA communities.</p>
+            </div>
+            
+            <div class="paths-grid">
+                <!-- Board Members Path -->
+                <div class="path-card board-card">
+                    <div class="path-icon">🏢</div>
+                    <h3 class="path-title">Board Members</h3>
+                    <p class="path-subtitle">Crisis Prevention & Financial Oversight</p>
+                    <p class="path-description">Access comprehensive building health monitoring, financial forecasting, and board-ready reports to protect your community's investments. Created to address real challenges faced by condo and HOA communities.</p>
+                    
+                    <ul class="features-list">
+                        <li>Building Health Dashboard</li>
+                        <li>Reserve Fund Analysis</li>
+                        <li>Crisis Prediction Alerts</li>
+                        <li>Financial Reports & Forecasts</li>
+                        <li>Compliance Tracking</li>
+                        <li>Board Presentation Tools</li>
+                    </ul>
+                    
+                    <div class="path-buttons">
+                        <a href="#" class="btn btn-primary">Sign In / Sign Up</a>
+                        <a href="#" class="btn btn-secondary">Request Demo</a>
+                    </div>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 1rem; font-style: italic;">Access your dashboard or create your account</p>
+                    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.5rem;">You'll be redirected to the secure login/registration page</p>
+                </div>
+
+                <!-- Property Managers Path -->
+                <div class="path-card">
+                    <div class="path-icon">📊</div>
+                    <h3 class="path-title">Property Managers</h3>
+                    <p class="path-subtitle">Daily Operations + Partnership Revenue</p>
+                    <p class="path-description">Streamline communications, prevent financial disasters, and earn recurring commissions through our partner program. Built specifically for the North American property management market.</p>
+                    
+                    <ul class="features-list">
+                        <li>Communication Template Library</li>
+                        <li>Document AI Analysis</li>
+                        <li>Assessment Calculator</li>
+                        <li>Client Portfolio Management</li>
+                        <li>Partner Commission Tracking</li>
+                        <li>Professional Reports Generator</li>
+                    </ul>
+                    
+                    <div class="path-buttons">
+                        <a href="#" class="btn btn-primary">Sign In / Sign Up</a>
+                        <a href="#" class="btn btn-secondary">Apply for Partnership</a>
+                    </div>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 1rem; font-style: italic;">Access your dashboard or create your account</p>
+                    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.5rem;">You'll be redirected to the secure login/registration page</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Preview -->
+    <section class="platform-preview">
+        <div class="container">
+            <div class="preview-content">
+                <h2 class="preview-title">What You Get in ReserveIQ Platform</h2>
+                <p class="preview-subtitle">Professional tools designed to solve the #1 challenge facing condo boards and HOAs: unexpected financial crises.</p>
+                
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #92400e; font-weight: 600; margin-bottom: 0.5rem;">📊 Industry Reality</h4>
+                    <p style="color: #b45309; margin: 0; font-size: 0.95rem;">Many condo and HOA communities face reserve fund shortfalls and unexpected assessment risks. ReserveIQ helps identify funding gaps years in advance.</p>
+                </div>
+                
+                <div class="preview-grid">
+                    <div class="preview-item">
+                        <h4>AI Document Analysis</h4>
+                        <p>Upload reserve studies and financial reports for instant AI-powered insights and recommendations.</p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <h4>Financial Forecasting</h4>
+                        <p>Predict funding gaps and crisis scenarios 2-3 years in advance with ML-powered analysis.</p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <h4>Professional Communications</h4>
+                        <p>Generate board-ready emails, notices, and reports with pre-built professional templates.</p>
+                    </div>
+                    
+                    <div class="preview-item">
+                        <h4>Compliance Monitoring</h4>
+                        <p>Never miss regulatory deadlines with automated tracking and jurisdiction-specific alerts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support">
+        <div class="container">
+            <h3>Need Help Getting Started?</h3>
+            <p>Our team is here to help you get the most out of ReserveIQ Platform. We serve property managers across multiple jurisdictions.</p>
+            <p>Contact us at <a href="mailto:support@reserveiq.dev">support@reserveiq.dev</a> or <a href="mailto:demo@reserveiq.dev">request a personalized demo</a>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://reserveiq.net">About ReserveIQ</a>
+                <a href="https://reserveiq.net">← Back to Marketing Site</a>
+                <a href="mailto:support@reserveiq.dev">Support</a>
+                <a href="mailto:demo@reserveiq.dev">Request Demo</a>
+                <a href="https://reserveiq.net">Partner Program</a>
+            </div>
+            <p>&copy; 2025 ReserveIQ. All rights reserved. | AI-Powered Property Intelligence for Condo & HOA Communities</p>
+        </div>
+    </footer>
+</body>
+</html>
